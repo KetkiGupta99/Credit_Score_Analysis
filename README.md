@@ -5,40 +5,40 @@
 - Assign each wallet a score from 0 (high risk) to 1000 (highly reliable), based solely on their transaction behavior.
 
 #Project Structure
-
-- credit.py/ # main python file 
-- user-wallet-transactions.json # Dataset in JSON 
-- requirements.txt # Required Python packages
-- .venv # Virtual environment 
+   - Credit_Score_Rough_Work.ipynb # Rough work 
+   - credit.py/ # main python file 
+   - user-wallet-transactions.json # Dataset in JSON 
+   - requirements.txt # Required Python packages
+   - .venv # Virtual environment 
 
 1. Create and activate a virtual environment
-   python -m venv .venv
-   .venv\Scripts\activate
+   - python -m venv .venv
+   - .venv\Scripts\activate
 
 2. Install dependencies
    pip install -r requirements.txt
 
 3. Credit Score Logic
    
-   Used two apporaches:
+  - Used two apporaches:
 
    ### 1. Rule-Based (Heuristic) Scoring
 
-   This method applies weights to behavioral patterns:
-
-   - Higher score for:
-     - Large deposit volume
-     - High repay-to-borrow ratio
-     - No liquidation events
-     - Long active history
-
-  - Lower score for:
-    - Frequent liquidation calls
-    - High borrow-to-deposit ratio
-    - Low repayment behaviour
+         This method applies weights to behavioral patterns:
+      
+         - Higher score for:
+           - Large deposit volume
+           - High repay-to-borrow ratio
+           - No liquidation events
+           - Long active history
+      
+        - Lower score for:
+          - Frequent liquidation calls
+          - High borrow-to-deposit ratio
+          - Low repayment behaviour
 
   ### 2. ML-based scoring
-    - Trained several regression models:
+      -  Trained several regression models:
       - Random Forest Regressor (Best performing)
       - Gradient Boosting
       - XGBoost
@@ -65,7 +65,7 @@
                    |
            Flatten the data
                    |
-           Clea the data
+           Clean the data
                    |
            Normalize the data
                    |
@@ -80,7 +80,7 @@
                JSON Output
    
 7. Processing Flow
-   1. Data Load: Load raw JSON data and flatten the data into columns, Normalize the       data, rename the columns name.
+   1. Data Load: Load raw JSON data and flatten the data into columns, Normalize the data, rename the columns name.
    2. Preprocessing:
       - Convert token amount to USD
       - Standardize actions (deposit, borrow, repay, etc.)
